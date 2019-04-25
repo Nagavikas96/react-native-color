@@ -11,7 +11,11 @@ const GradientSlider = ({
   maximumValue,
   gradient,
   onValueChange,
-  thumbTintColor
+  thumbTintColor,
+  width,
+  height,
+  borderRadius,
+  onSlidingComplete
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -21,12 +25,13 @@ const GradientSlider = ({
         step={step}
         animateTransitions
         animationType="spring"
+        onSlidingComplete = {onSlidingComplete}
         thumbTouchSize={{ width: 48, height: 48 }}
         maximumValue={maximumValue}
         onValueChange={onValueChange}
         minimumTrackTintColor="transparent"
         maximumTrackTintColor="transparent"
-        thumbStyle={[styles.thumb, { backgroundColor: thumbTintColor }]}
+        thumbStyle={[styles.thumb, { backgroundColor: thumbTintColor, width : width ? width : 24, height : height ? height : 24, borderRadius : borderRadius ? borderRadius : 24/2 }]}
       />
     </View>
   );
@@ -57,6 +62,8 @@ const styles = StyleSheet.create({
     height: 6,
   },
 });
+
+
 
 GradientSlider.propTypes = {
   value: PropTypes.number.isRequired,
