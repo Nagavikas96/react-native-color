@@ -10,13 +10,15 @@ const SaturationSlider = ({
   value,
   color,
   onValueChange,
-  gradientSteps
+  gradientSteps,
+  onSlidingComplete
 }) => {
   return (
     <GradientSlider
       gradient={
         <SaturationGradient color={color} gradientSteps={gradientSteps} />
       }
+      onSlidingComplete = {onSlidingComplete}
       style={style}
       step={0.01}
       maximumValue={1}
