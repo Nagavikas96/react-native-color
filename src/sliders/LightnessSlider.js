@@ -10,7 +10,8 @@ const LightnessSlider = ({
   value,
   color,
   onValueChange,
-  gradientSteps
+  gradientSteps,
+  onSlidingComplete
 }) => {
   return (
     <GradientSlider
@@ -18,6 +19,7 @@ const LightnessSlider = ({
         <LightnessGradient color={color} gradientSteps={gradientSteps} />
       }
       style={style}
+      onSlidingComplete={onSlidingComplete}
       step={0.01}
       maximumValue={1}
       value={value}
